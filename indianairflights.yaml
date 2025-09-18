@@ -1,0 +1,239 @@
+openapi: 3.0.0
+info:
+  title: IndianAir Flights API
+  description: "Orginaly opneapi was 3.0.0 and version v1"
+  version: v2
+servers:
+- url: https://virtserver.swaggerhub.com/J7834/indianair-flights-api/v1
+  description: SwaggerHub API Auto Mocking
+security:
+- ApiKey: []
+paths:
+  /flights:
+    get:
+      parameters:
+      - name: origination
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: destination
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: dateOfTravel
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date
+      responses:
+        "200":
+          description: This is the response of get flights operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndianAirFlights'
+              examples:
+                ex1:
+                  $ref: '#/components/examples/IndianAirFlights'
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IndianAirFlight'
+            examples:
+              ex1:
+                $ref: '#/components/examples/IndianAirFlight'
+      responses:
+        "201":
+          description: This is the response of post flights operation
+          content:
+            application/json:
+              example:
+                message: Flight has been added
+  /flights/{ID}:
+    get:
+      parameters:
+      - name: ID
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: This is the response of get flights based on ID operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndianAirFlight'
+              examples:
+                ex1:
+                  $ref: '#/components/examples/IndianAirFlight'
+    put:
+      parameters:
+      - name: ID
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IndianAirFlight'
+            examples:
+              ex1:
+                $ref: '#/components/examples/IndianAirFlight'
+      responses:
+        "200":
+          description: This is the response of update flights based on ID operation
+          content:
+            application/json:
+              example:
+                message: Flight is updated
+    delete:
+      parameters:
+      - name: ID
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: This is the response of delete flights based on ID operation
+          content:
+            application/json:
+              example:
+                message: Flight is deleted
+components:
+  schemas:
+    IndianAirFlight:
+      required:
+      - code
+      - departureDate
+      - destination
+      - emptySeats
+      - origin
+      - price
+      type: object
+      properties:
+        ID:
+          type: integer
+        code:
+          type: string
+        price:
+          type: integer
+        departureDate:
+          type: string
+          format: date
+        origin:
+          type: string
+        destination:
+          type: string
+        emptySeats:
+          type: integer
+        plane:
+          $ref: '#/components/schemas/IndianAirFlight_plane'
+    IndianAirFlights:
+      type: array
+      items:
+        $ref: '#/components/schemas/IndianAirFlights_inner'
+    IndianAirFlight_plane:
+      required:
+      - ptype
+      - totalSeats
+      type: object
+      properties:
+        ptype:
+          type: string
+        totalSeats:
+          type: integer
+    IndianAirFlights_inner:
+      required:
+      - code
+      - departureDate
+      - destination
+      - emptySeats
+      - origin
+      - price
+      properties:
+        ID:
+          type: integer
+        code:
+          type: string
+        price:
+          type: integer
+        departureDate:
+          type: string
+          format: date
+        origin:
+          type: string
+        destination:
+          type: string
+        emptySeats:
+          type: integer
+        plane:
+          required:
+          - ptype
+          - totalSeats
+          type: object
+          properties:
+            ptype:
+              type: string
+            totalSeats:
+              type: integer
+  examples:
+    IndianAirFlights:
+      value:
+      - ID: 13
+        code: INA629
+        price: 5600
+        departureDate: 26 Feb 2021
+        origin: DEL
+        destination: BLR
+        emptySeats: 120
+        plane:
+          ptype: Boeing 737
+          totalSeats: 180
+      - ID: 16
+        code: INA1629
+        price: 5200
+        departureDate: 26 Feb 2021
+        origin: DEL
+        destination: BLR
+        emptySeats: 95
+        plane:
+          ptype: Boeing 737
+          totalSeats: 180
+    IndianAirFlight:
+      value:
+        ID: 13
+        code: INA629
+        price: 5600
+        departureDate: 26 Feb 2021
+        origin: DEL
+        destination: BLR
+        emptySeats: 120
+        plane:
+          ptype: Boeing 737
+          totalSeats: 180
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      name: api_key
+      in: header
