@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: IndianAir Flights API
-  description: "This Open API Spec 3.0.0 belong to Meryee F"
+  description: "Ye Mareyee Birth Day December 12th will be used for Open API Spec 3.0.0 "
   version: v2,v3,v4
 servers:
 - url: https://virtserver.swaggerhub.com/J7834/indianair-flights-api/v1
