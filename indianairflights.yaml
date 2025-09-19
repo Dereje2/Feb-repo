@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   title: IndianAir Flights API
   description: "This Opn API Spec is  3.0.0 and version v2 "
-  version: v2
+  version: v3
 servers:
 - url: https://virtserver.swaggerhub.com/J7834/indianair-flights-api/v1
   description: SwaggerHub API Auto Mocking
