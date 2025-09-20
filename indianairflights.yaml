@@ -1,11 +1,11 @@
 openapi: 3.0.2
 info:
   title: IndianAir Flights API
-  description: "Ye Mareyee Birth Day December 12th will be used for Open API Spec 3.0.0 "
-  version: v2,v3,v4
+  description: "API Spec File Le Meryee  "
+  version: V1,
 servers:
 - url: https://virtserver.swaggerhub.com/J7834/indianair-flights-api/v1
-  description: SwaggerHub API Auto Mocking
+  description: SwaggerHub API Auto Mocking Le Meryee
 security:
 - ApiKey: []
 paths:
