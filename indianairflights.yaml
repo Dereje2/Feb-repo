@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: IndianAir Flights API
-  description: "API Spec File Le Meryee  "
+  description: "Mareyee Ye ne Mare API Spec File Le Meryee  "
   version: V1,
 servers:
 - url: https://virtserver.swaggerhub.com/J7834/indianair-flights-api/v1
