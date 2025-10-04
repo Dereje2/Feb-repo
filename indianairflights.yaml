@@ -1,11 +1,11 @@
-openapi: 3.0.2
+openapi: 3.0.0
 info:
   title: IndianAir Flights API
-  description: "Mareyee Ye ne Mare API Spec File Le Meryee  "
-  version: V1,
+  description: "Hanna Fekadu Ye ne Mare API Spec File Le Meryee  "
+  version: V1,v2,v3
 servers:
 - url: https://virtserver.swaggerhub.com/J7834/indianair-flights-api/v1
-  description: SwaggerHub API Auto Mocking Le Meryee
+  description: SwaggerHub API Auto Mocking Le Hanna
 security:
 - ApiKey: []
 paths:
